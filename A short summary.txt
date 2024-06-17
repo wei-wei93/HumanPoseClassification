@@ -1,0 +1,23 @@
+Reasons why I chose the method:
+    After reading a dozen papers dealing with pose classification, I found that most of 
+    them use fully connected neural networks as classification models and send the x,y 
+    coordinates and scores of body keypoints to the model for training and testing, so 
+    I decided to do the same thing, and it turns out giving a good result. 
+
+    Firstly, I used two dense layers on the neural network, the best training accuracy can
+    arrive only at around 94%, and no matter how I change the number of nodes and 
+    even add more dense layers, the accuracy cannot be higher, I thought maybe it is 
+    because the task is simple, and complex model would be self-defeating, then I drop 
+    out the second dense layer and used only one dense layer for training, and I found 
+    it even faster and more accurant, taking 256 nodes in dense layer gives highest 
+    accuracy in both testing and training datasets and is the fastest with the same 
+    accuracy. Basically, I chose the method based on previous works and multiple trials. 
+
+
+The limitation and the improvement: 
+    The training accuracy of the model can never be higher than 98%, and it always 
+    misrecognizes the class "action_outside" as the class "block_events_ran", I think it is 
+    because there are some similar patterns between those two classes, and this issue 
+    might be able to be mitigated if we send more data of those two classes that can 
+    more clearerly distinguish each other and show each other's features or use a more 
+    complex model to learn the data in more detail. 
